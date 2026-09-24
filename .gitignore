@@ -1,0 +1,9 @@
+# dependencies
+node_modules
+
+# local docs copy (not versioned)
+docs/sanity/
+
+# secrets
+.env
+.env.*
