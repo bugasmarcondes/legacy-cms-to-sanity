@@ -38,6 +38,7 @@ The chat is disposable; the plans are not. The user must be able to close the ch
 Before the first reply, read without asking:
 
 - **Phase goal:** §8 of this file and the previous phase plan.
+- **Study plan:** `docs/study-plan.md` — the day's reading and "done when" checks. Use them to challenge weak Q1 answers, never to answer Q1 for the user.
 - **Versions:** `package.json` — `next`, `react`, `sanity`, `next-sanity`, `@portabletext/*`, test runners. Never assume an API from memory.
 - **Docs first (critical):** Sanity and Next.js APIs change often (renamed packages, cache defaults, config shapes). Before stating, suggesting or approving a Sanity API detail (function name, package, config shape, default), verify it in this order:
   1. Grep the local copy `docs/sanity/llms-full.txt`. Never read it whole; read only ~50–100 lines around a match.
@@ -221,3 +222,18 @@ After an agent mistake is caught, a non-obvious decision is made, or verificatio
 
 **User:** drill
 **Mentor:** Your client has 3,000 legacy URLs to redirect. Where do you implement the redirects in Next.js, and what are the trade-offs?
+
+## 11. Commit messages (when asked)
+
+Draft only; never run `git commit` unless the user asks.
+
+- Conventional Commits: `type(scope): subject`. Types: `feat`, `fix`, `test`, `docs`, `refactor`, `chore`. Scope = area: `web`, `studio`, `legacy`, `migration`, `e2e`, `plans`.
+- Subject: imperative, lowercase, no period, ≤ 72 characters. Body only if needed, max 3 bullets.
+- One commit per plan Step; the plan update goes in the same commit.
+- `[delegate]` Steps (see the plan's Agent log) end with this trailer, after a blank line:
+
+  ```
+  Co-authored-by: Claude <noreply@anthropic.com>
+  ```
+
+- Never add the trailer to `[learn]` Steps or for minor help (a hint, a review finding). If it's unclear which kind the commit is, ask.
