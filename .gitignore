@@ -4,6 +4,9 @@ node_modules
 # local docs copy (not versioned)
 docs/sanity/
 
+# generated fixture output (regenerate via generate.js)
+packages/legacy-fixture/fixture.json
+
 # secrets
 .env
 .env.*

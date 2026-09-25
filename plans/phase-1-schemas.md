@@ -1,7 +1,7 @@
 # PLAN — Phase 1: Schemas
 
 **Status:** Build
-**Next step:** Start Step 1
+**Next step:** Start Step 2 (Studio scaffolding, [delegate])
 
 ## Context
 
@@ -19,7 +19,7 @@
 
 ## Steps
 
-1. [ ] [delegate] Seed legacy fixture: JSON or SQLite, ≥300 rows, fields `id, title, bodyHtml, author, category/tags, publishedAt`; hard cases represented (broken img, dead internal link, nested table, video embed, empty title, empty body) — done when: row count ≥300 and a count-per-hard-case check confirms each case appears multiple times, not once.
+1. [x] [delegate] Seed legacy fixture: JSON or SQLite, ≥300 rows, fields `id, title, bodyHtml, author, category/tags, publishedAt`; hard cases represented (broken img, dead internal link, nested table, video embed, empty title, empty body) — done when: row count ≥300 and a count-per-hard-case check confirms each case appears multiple times, not once.
 2. [ ] [delegate] Install/scaffold Sanity Studio in the workspace — done when: Studio runs locally and connects to the project/dataset.
 3. [ ] [learn] Design `article`, `author`, `tag` schemas with validation (required title/slug, slug uniqueness, reference fields) — done when: schemas deploy and Studio shows correctly typed fields for each.
 4. [ ] [learn] Studio structure + preview config for `article`/`author` — done when: document list shows meaningful previews (title, author name), not just `Untitled`.
@@ -35,7 +35,7 @@
 
 ## Agent log
 
--
+- Legacy fixture generator (`packages/legacy-fixture/generate.js` + README) — verified by: jq counts per hard case + manual glance — result: ok, counts matched expected frequency.
 
 ## Review (after checks pass)
 
