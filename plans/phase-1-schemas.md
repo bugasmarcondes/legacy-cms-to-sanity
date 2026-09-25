@@ -1,7 +1,7 @@
 # PLAN — Phase 1: Schemas
 
 **Status:** Build
-**Next step:** Start Step 2 (Studio scaffolding, [delegate])
+**Next step:** Start Step 3 (article/author/tag schemas, [learn])
 
 ## Context
 
@@ -20,7 +20,7 @@
 ## Steps
 
 1. [x] [delegate] Seed legacy fixture: JSON or SQLite, ≥300 rows, fields `id, title, bodyHtml, author, category/tags, publishedAt`; hard cases represented (broken img, dead internal link, nested table, video embed, empty title, empty body) — done when: row count ≥300 and a count-per-hard-case check confirms each case appears multiple times, not once.
-2. [ ] [delegate] Install/scaffold Sanity Studio in the workspace — done when: Studio runs locally and connects to the project/dataset.
+2. [x] [delegate] Install/scaffold Sanity Studio in the workspace — done when: Studio runs locally and connects to the project/dataset.
 3. [ ] [learn] Design `article`, `author`, `tag` schemas with validation (required title/slug, slug uniqueness, reference fields) — done when: schemas deploy and Studio shows correctly typed fields for each.
 4. [ ] [learn] Studio structure + preview config for `article`/`author` — done when: document list shows meaningful previews (title, author name), not just `Untitled`.
 5. [ ] [learn] Write the GROQ orphan/broken-reference verification query — done when: it runs against the dataset and returns zero false negatives on a seeded bad doc.
@@ -32,10 +32,12 @@
 - Tags over categories — many-to-many, lighter-weight than a hierarchical taxonomy.
 - Single `author` field, no coauthors array — scoped out to keep schema simple for a study project.
 - Reactions/comments excluded from Sanity schema — user-generated, high-write, no editorial value; belongs in app DB or a separate service, not the CMS.
+- Root `README.md` gets a "Project layout" table (path, purpose, run command) — kept current every time a new app/package is added, so the user and interviewers can see and run every piece from one place.
 
 ## Agent log
 
 - Legacy fixture generator (`packages/legacy-fixture/generate.js` + README) — verified by: jq counts per hard case + manual glance — result: ok, counts matched expected frequency.
+- Sanity Studio scaffold (`apps/studio`, new project `ie6ss9a9`, dataset `production`) — verified by: `pnpm --filter studio dev`, loaded at localhost:3333 — result: ok.
 
 ## Review (after checks pass)
 
